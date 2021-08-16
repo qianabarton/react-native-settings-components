@@ -54,7 +54,7 @@ class SettingsButton extends Component {
     descriptionStyle: PropTypes.object,
     description: PropTypes.string,
     rightIconWrapperStyle: PropTypes.object,
-    rightIcon: PropTypes.func,
+    rightText: PropTypes.string,
     disabled: PropTypes.bool,
     onPress: PropTypes.func.isRequired,
 
@@ -70,14 +70,14 @@ class SettingsButton extends Component {
     descriptionStyle: {},
     description: null,
     rightIconWrapperStyle: {},
-    rightIcon: null,
+    rightText: null,
     disabled: false,
   };
 
   render() {
     const {
       containerProps, containerStyle, titleProps, titleStyle, title, disabled,
-      disabledOverlayStyle, rightIconWrapperStyle, rightIcon,
+      disabledOverlayStyle, rightIconWrapperStyle, rightText,
       onPress, descriptionProps, descriptionStyle, description,
     } = this.props;
 
@@ -105,11 +105,11 @@ class SettingsButton extends Component {
               </Text>
             ) : null}
           </View>
-          {rightIcon ? (
+          {rightText ? (
             <View
               style={[style.defaultRightIconWrapperStyle, rightIconWrapperStyle]}
             >
-              {rightIcon()}
+              {rightText}
             </View>
           ) : null}
           {(disabled) ? (
